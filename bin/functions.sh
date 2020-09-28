@@ -93,4 +93,10 @@ function prep_all_docx(){
     rm $TEMPFILE
 }
 
-prep_all_docx
+#prep_all_docx
+
+function update_graded_names(){
+     eval local TARGET=$1
+     find $TARGET -type f -iname "*.docx" -exec cp {} {}-GRADED \;
+     find $TARGET  -type f -iname "*.docx*" -exec rm {} {}.docx \;
+}
